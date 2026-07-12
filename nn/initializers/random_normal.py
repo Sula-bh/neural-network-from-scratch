@@ -1,5 +1,6 @@
 import numpy as np
-from base import Initializer
+
+from .base import Initializer
 
 
 class RandomNormalInitializer(Initializer):
