@@ -19,5 +19,5 @@ class Dense(Layer):
     def backward(self, grad_output):
         self.dweights = self.inputs.T @ grad_output
         self.dbiases = np.sum(grad_output, axis=0, keepdims=True)
-        self.dinputs = grad_output @ self.weights.T
-        return self.dinputs
+        dinputs = grad_output @ self.weights.T
+        return dinputs
