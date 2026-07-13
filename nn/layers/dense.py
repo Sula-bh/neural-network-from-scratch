@@ -6,10 +6,22 @@ from .base import Layer
 
 class Dense(Layer):
     def __init__(self, n_inputs: int, n_neurons: int, initializer=None):
+        super().__init__()
         if initializer is None:
             initializer = RandomNormalInitializer()
         self.weights = initializer.initialize(shape=(n_inputs, n_neurons))
         self.biases = np.zeros((1, n_neurons))
+        self.inputs = None
+        self.dweights = None
+        self.dbiases = None
+
+    @property
+    def parameters(self):
+        return [self.weights, self.biases]
+    
+    @property
+    def gradients(self):
+        return [self.dweights, self.dbiases]
 
     def forward(self, inputs):
         self.inputs = inputs
