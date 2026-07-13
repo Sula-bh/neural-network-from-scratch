@@ -29,6 +29,8 @@ class Dense(Layer):
         return output
 
     def backward(self, grad_output):
+        if self.inputs is None:
+            raise ValueError("Cannot perform backward pass without stored inputs")
         self.dweights = self.inputs.T @ grad_output
         self.dbiases = np.sum(grad_output, axis=0, keepdims=True)
         dinputs = grad_output @ self.weights.T
