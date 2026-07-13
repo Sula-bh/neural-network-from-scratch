@@ -6,7 +6,6 @@ from .base import Layer
 
 class Dense(Layer):
     def __init__(self, n_inputs: int, n_neurons: int, initializer=None):
-        super().__init__()
         if initializer is None:
             initializer = RandomNormalInitializer()
         self.weights = initializer.initialize(shape=(n_inputs, n_neurons))
