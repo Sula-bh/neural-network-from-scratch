@@ -16,6 +16,7 @@ This repository is designed for learning and experimentation. Instead of relying
 - Dense layers with learnable weights and biases
 - ReLU and Softmax activations
 - Categorical cross-entropy and mean squared error losses
+- Combined softmax and cross-entropy
 - Accuracy metric
 - Stochastic Gradient Descent optimizer
 - Gradient checking utilities for debugging
